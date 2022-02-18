@@ -1,16 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../auth/services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styles: [
-  ]
+  styles: []
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
 
-  constructor() { }
+get auth(){
+  return this.authService.auth
+}
 
-  ngOnInit(): void {
+
+
+
+  constructor( private router: Router,  private authService: AuthService ) { }
+
+  logout() {
+
+    this.router.navigateByUrl('/auth');
+    this.authService.logout();
+
   }
+
 
 }
