@@ -1,5 +1,9 @@
 # HeroesAppMp
 
+Este es mi proyecto de HeroesAppMP espero que les guste el proyecto no estuvo totalmente completado por motivos de tiempo pero espero que lo que ya este completado les pueda ser de agrado.
+
+para porbar la App, solo basta clonar esta repo, en el Angular CLI descargar las dependencias de NODE y levantar la APP con el ng serve -o y estaria listo para probarlo.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
 
 ## Development server
