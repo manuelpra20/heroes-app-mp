@@ -8,6 +8,9 @@ import { AuthService } from '../auth/services/auth.service';
 })
 export class AuthGuard implements CanLoad {
 
+
+  // Servicio que utilizamos para proteger las rutas privadas mediante el canLoad  y el canActivate
+
   constructor(  private authService: AuthService ){}
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -15,7 +18,6 @@ export class AuthGuard implements CanLoad {
       if ( this.authService.auth[0] ) {
         return true
       }
-      console.log('Bloqueado por el authGuard - CanActive');
     return false;
   }
   canLoad(
@@ -24,8 +26,7 @@ export class AuthGuard implements CanLoad {
       if ( this.authService.auth[0] ) {
         return true
       }
-      console.log('Bloqueado por el authGuard - CanLoad');
-      
+    
     return false;
   }
 }

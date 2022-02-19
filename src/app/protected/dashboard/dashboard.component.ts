@@ -9,21 +9,19 @@ import { AuthService } from '../../auth/services/auth.service';
 })
 export class DashboardComponent {
 
-get auth(){
-  return this.authService.auth
-}
+  show: boolean = false
 
-
-
+  get auth(){
+    return this.authService.auth
+  }
 
   constructor( private router: Router,  private authService: AuthService ) { }
 
-  logout() {
-
-    this.router.navigateByUrl('/auth');
-    this.authService.logout();
-
-  }
+    // metodo para cerrar session
+    logout() {
+      this.router.navigateByUrl('/auth');
+      this.authService.logout();
+    }
 
 
 }

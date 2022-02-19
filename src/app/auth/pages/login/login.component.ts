@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
+
+// para la ventana modal de informacion en el login como en el register utilice sweetalert2.
 import  Swal from "sweetalert2";
 
 @Component({
@@ -11,19 +13,19 @@ import  Swal from "sweetalert2";
   styles: [],
 })
 export class LoginComponent {
+
+  // Aqui utilice para login como para registro formularios rectivos de angular, la cual feclare en el auth.moodule el ReactiveFormsModule para que pueda funcionar sus atributos en el html
+
   miFormulario: FormGroup = this.fb.group({
-    email: ['manuelpra20@gmail.com', [Validators.required, Validators.email]],
-    password: ['123456', [Validators.required, Validators.minLength(6)]],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
   });
 
-  constructor(
-    private fb: FormBuilder, private router: Router, private authService: AuthService
-  ) {}
+  constructor( private fb: FormBuilder, private router: Router, private authService: AuthService) {}
 
 
+  // metodo de login paara guardar usuario
   login() {
-    console.log(this.miFormulario.value);
-
     const isRegister = this.authService.login(this.miFormulario.value);
 
     if (isRegister) {

@@ -15,6 +15,7 @@ export class AuthService {
 
   constructor() {
 
+    // aqui guardaremos datos de usuario y asignamos a el array usersTable valores extraidos del localstorage
     const users = this.getLocalStorage('users');
     if ( users ) {
       this.usersTable = users;
@@ -23,22 +24,26 @@ export class AuthService {
     }
   }
 
+  // metodo para recibir informacion de usuarios del getLocalStorage
   getLocalStorage(key:string){
     const data = localStorage.getItem(key);
     return data ? JSON.parse(data) : null;
   }
 
+  // metodo para enviar informacion de usuarios a getLocalStorage
   setLocalStorage(key: string, data: any) {
     const dataString = JSON.stringify(data);
     localStorage.setItem(key, dataString);
   }
 
+  // metodo la cual comprobamos si exite un usuario en localstorage
   login(data:any) {
     const user = this.usersTable.find(u => u.email == data.email);
     return user && data.password == user.password;
     
   }
 
+  // metodo la cual comprobamos datos del usuario  en localstorage para el registro
   register(data: any) {
     
     const user = this.usersTable.find(u => u.email == data.email);
@@ -55,6 +60,7 @@ export class AuthService {
 
   }
   
+  // metodo para setear valores del usuario en el localstorage
   logout() {
     localStorage.clear();
   }

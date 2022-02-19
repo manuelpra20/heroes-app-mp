@@ -1,0 +1,53 @@
+
+
+    
+        <h4>Buscador de heroes:</h4>
+        <form style="width: 600px;" class="d-flex"  (ngSubmit)="buscar()">
+            <input 
+                type="text" 
+                name="termino"
+                class=" form-control me-2" 
+                placeholder="Buscar Super Heroes" 
+                 [(ngModel)]="termino"
+                aria-label="Search">
+        </form>
+    
+    <hr>
+    
+    <div style="margin-top: 10px;" >
+
+            <ng-container >
+              
+                    <table class="table table-responsive table-bordered tabled">
+                        <thead>
+                            <tr>
+                                <th>Imagen del Heroe</th>
+                                <th>Nro</th>
+                                <th>Nombre del Heroe</th>
+                                <th>Descripción</th>
+                                <th>Modificado</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr  *ngFor="let heroe of heroesLists ; let i = index ">
+                                <td><img class="tamanio" src="{{heroe.thumbnail.path}}.{{heroe.thumbnail.extension}}" alt="{{heroe.name}}"></td>
+                                <td>{{ i+1 }}</td>
+                                <td>{{ heroe.name }}</td>
+                                 <td class="tdspace">{{ heroe.description }}</td>
+                                 <td class="tdspa">{{heroe.modified}}</td>
+                            
+                                <td>
+                                    <button  (click)="addtoHeroesguardados(heroe)" class="btn btn-success"><i class="fas fa-save"></i> SAVE</button>
+                                </td>  
+                            
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                
+            </ng-container>
+
+    </div>
+
+

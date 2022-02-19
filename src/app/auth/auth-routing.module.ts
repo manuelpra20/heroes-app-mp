@@ -4,6 +4,9 @@ import { MainComponent } from './pages/main/main.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 
+
+// Rutas existentes para el modulo de Auth
+
 const routes: Routes = [
   {
     path: '',
